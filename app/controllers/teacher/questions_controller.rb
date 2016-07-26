@@ -1,6 +1,6 @@
 class Teacher::QuestionsController < ApplicationController
-  #before_action :authenticate_user!
-  #load_and_authorize_resource
+  before_action :authenticate_user!
+  load_and_authorize_resource
 
   def index
     @questions = Question.all
@@ -23,6 +23,6 @@ class Teacher::QuestionsController < ApplicationController
   
   private
   def question_params
-    params.require(:question).permit :content, options_attributes: [:id, :content, :is_correct]
+    params.require(:question).permit :content, options_attributes: [:id, :content, :is_correct, :_destroy]
   end
 end

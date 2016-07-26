@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'examinations/index'
+
   get 'home/index'
 
   devise_for :users
@@ -21,5 +23,9 @@ Rails.application.routes.draw do
       root :to => 'questions#index'
       resources :questions
       resources :examinations
+  end
+  
+  resources :examinations do
+    resources :answer_sheets
   end
 end

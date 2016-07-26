@@ -1,0 +1,7 @@
+<ul>
+  <% @examinations.each do |exam| %>
+    <li>
+      <%= link_to exam.name, new_examination_answer_sheet_path(exam) %>
+    </li>
+  <% end %>
+</ul>

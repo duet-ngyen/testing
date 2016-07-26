@@ -3,10 +3,10 @@
     <div>
       <b>Question: </b><%= question.content %>
     </div>
-    <div>
+    <div class="option-area">
       <% question.options.each do |option| %>
         <div>
-          <b>Option: </b><%= option.content %>  
+          <span class="<%= option.is_correct ? 'correct_option' : '' %>"><b>Option: </b><%= option.content %></span>
         </div>
       <% end %>
     </div>

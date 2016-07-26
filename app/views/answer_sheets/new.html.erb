@@ -1,0 +1,26 @@
+<%= form_for [@examination, @answer_sheet] do |f| %>
+  <% @answer_sheet.answers.build %>
+  <div class="col-md-8 col-md-offset-2">
+    <h2><%= @examination.name %></h2>
+    <% @examination.questions.each_with_index do |question, index| %>
+      <%= f.fields_for :answers do |builder| %>
+        <%= builder.hidden_field :question_id, value: question.id %>
+        <p>
+          <strong><%= "Question #{index+1}." %></strong> <%= question.content %>
+        </p>
+        <% question.options.each do |option| %>
+          <div class='radio'>              
+            <%= builder.radio_button :option_id, option.id %>
+            <%= builder.label :option_id, option.content %>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+    <%= f.hidden_field :examination_id, value: @examination.id %>
+    <%= f.hidden_field :student_id, value: current_user.id %>
+    
+    <div>
+      <%= f.submit "Submit", id: "submit_answer_sheet", class: "btn btn-default btn-primary" %>
+    </div>
+  </div>
+<% end %>
