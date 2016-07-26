@@ -1,0 +1,4 @@
+<h1>List Examinations</h1>
+<% @examinations.each do |examination| %>
+    <%= link_to examination.name, teacher_examination_path(examination) %> <br>
+<% end %>

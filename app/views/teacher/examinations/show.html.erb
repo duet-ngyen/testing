@@ -1,0 +1,14 @@
+<div>
+  <% @examination.questions.each do |question| %>
+    <div>
+      <b>Question: </b><%= question.content %>
+    </div>
+    <div>
+      <% question.options.each do |option| %>
+        <div>
+          <b>Option: </b><%= option.content %>  
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

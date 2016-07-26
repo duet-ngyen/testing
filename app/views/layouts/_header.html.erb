@@ -1,0 +1,6 @@
+
+<% if user_signed_in? %>
+  <%= link_to t("header.logout"), destroy_user_session_path, method: :delete, class: "navbar-link"  %>
+<% else %>
+  <%= link_to "Sign In", user_session_path %>
+<% end %>

@@ -1,0 +1,14 @@
+<div class="fields">
+  <div class="content">
+    <%= f.label :content, 'Option' %>
+    <%= f.text_field :content, class: 'form-control' %>
+  </div>
+  
+  <div class="checkbox inline">
+    <%= f.check_box :is_correct %>
+    <%= f.label :is_correct, 'Correct?' %>
+  </div>
+  <div>
+    <%= link_to_remove_fields "Remove", f %>
+  </div>
+</div>
